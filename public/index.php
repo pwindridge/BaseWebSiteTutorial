@@ -6,7 +6,7 @@
 </head>
 <body>
 <header>
-    <h1>Welcome to PHP</h1>
+    <h1>Welcome to the MVC from scratch tutorial</h1>
 </header>
 </body>
 </html>
