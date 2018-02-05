@@ -1,6 +1,6 @@
 <?php
 
-namespace mvcwebsite;
+namespace mvcwebsite\controllers;
 
 
 class PagesController {
