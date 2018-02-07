@@ -2,17 +2,19 @@
 
 require '../core/bootstrap.php';
 
-$routes = [
-    '' => '../app/controllers/index.php',
-    'index' => '../app/controllers/index.php',
-    'register' => '../app/controllers/register.php',
-    'add_user' => '../app/controllers/add_user.php'
-];
+use core\{
+    Router,
+    Request
+};
 
-$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-if (array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-} else {
-    throw new Exception($uri . ' resource could not be found');
+try {
+    require Router::load('../routes.php')
+        ->direct(Request::uri());
+
+} catch (Exception $e) {
+
+    if ($e->getMessage() == 'Resource not found') {
+        require '../app/controllers/HttpPageNotFound.php';
+    }
 }
