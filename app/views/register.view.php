@@ -1,17 +1,13 @@
 <?php require 'partials/head.php'; ?>
 
-<header>
-    <h1>Register as a User</h1>
-</header>
-
-<form method="post">
+<form method="get" action="add_user">
     <p>
-        <label for="name">Full name: </label>
-        <input type="text" id="name" name="name" placeholder="Your name">
+        <label for="name">Full name:</label>
+        <input type="text" id="name" name="name" placeholder="your name">
     </p>
     <p>
-        <label for="email">Email address: </label>
-        <input type="email" id="email" name="email" placeholder="Your email">
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" placeholder="your email">
     </p>
     <p>
         <button type="submit">Submit</button>
