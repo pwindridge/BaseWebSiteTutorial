@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Welcome Page</title>
-</head>
-<body>
-<header>
-    <h1>Welcome to the MVC from scratch tutorial</h1>
-</header>
-</body>
-</html>
+<?php
+
+$routes = [
+    '' => '../app/controllers/index.php',
+    'register' => '../app/controllers/register.php'
+];
+
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+
+if (array_key_exists($uri, $routes)) {
+    require $routes[$uri];
+} else {
+    throw new Exception("URI not found");
+}
