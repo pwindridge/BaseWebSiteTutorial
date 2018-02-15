@@ -10,15 +10,18 @@ class Router {
         'POST' => []
     ];
 
-    public function get(string $uri, string $route) {
+    public function get(string $uri, string $route)
+    {
         $this->routes['GET'][$uri] = $route;
     }
 
-    public function post(string $uri, string $route) {
+    public function post(string $uri, string $route)
+    {
         $this->routes['POST'][$uri] = $route;
     }
 
-    public static function load(string $file) {
+    public static function load(string $file)
+    {
         $router = new self;
         require $file;
 
