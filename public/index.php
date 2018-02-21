@@ -9,7 +9,7 @@ $routes = [
     'add_user' => '../app/controllers/add_user.php'
 ];
 
-$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+$uri = trim($_SERVER['REQUEST_URI'], '/');
 
 if (array_key_exists($uri, $routes)) {
     require $routes[$uri];
