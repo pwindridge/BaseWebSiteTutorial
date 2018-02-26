@@ -2,17 +2,13 @@
 
 require '../core/bootstrap.php';
 
-$routes = [
-    '' => '../app/controllers/index.php',
-    'index' => '../app/controllers/index.php',
-    'register' => '../app/controllers/register.php',
-    'add_user' => '../app/controllers/add_user.php'
-];
+use \core\{
+    Router, Request
+};
 
-$uri = trim($_SERVER['REQUEST_URI'], '/');
+try {
+    require Router::load('../routes.php')
+        ->direct(Request::uri());
+} catch(Exception $e) {
 
-if (array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-} else {
-    throw new Exception($uri . ' resource could not be found');
 }
