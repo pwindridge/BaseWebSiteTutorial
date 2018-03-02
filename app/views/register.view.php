@@ -1,6 +1,6 @@
 <?php require 'partials/head.php'; ?>
 
-<form method="post" action="add_user">
+<form method="post" action="/add_user">
     <p>
         <label for="name">Full name:</label>
         <input type="text" id="name" name="name" placeholder="your name">
