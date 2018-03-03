@@ -1,8 +1,8 @@
 <?php
 
-$router->get('', '../app/controllers/index.php');
-$router->get('index', '../app/controllers/index.php');
-$router->get('register', '../app/controllers/register.php');
-$router->get('search', '../app/controllers/search.php');
+$router->get('', 'PagesController@home');
+$router->get('index', 'PagesController@home');
+$router->get('register', 'UsersController@register');
+$router->get('search', 'UsersController@search');
 
-$router->post('add_user', '../app/controllers/add_user.php');
+$router->post('add_user', 'UsersController@store');

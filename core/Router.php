@@ -34,10 +34,23 @@ class Router {
         $uri = strtolower($uri);
 
         if (array_key_exists($uri, $this->routes[$method])) {
-            return $this->routes[$method][$uri];
+            return $this->callAction(
+                ...explode('@', $this->routes[$method][$uri])
+            );
         }
 
         throw new \Exception('Resource not found');
+    }
 
+    private function callAction($controller, $action)
+    {
+        $controller = '\mvcwebsite\controllers\\' . $controller;
+        $controller = new $controller();
+
+        if (method_exists($controller, $action)) {
+            return $controller->$action();
+        }
+
+        throw new \Exception("Action not supported");
     }
 }
