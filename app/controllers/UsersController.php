@@ -9,7 +9,7 @@ class UsersController {
     {
         $title = 'Registration Page';
 
-        require __DIR__ . '/../views/register.view.php';
+        return view('register', compact('title'));
     }
 
     public function search()
@@ -18,7 +18,7 @@ class UsersController {
 
         $name = $_GET['name'];
 
-        require __DIR__ . '/../views/search.view.php';
+        return view('search', compact('title', 'name'));
     }
 
     public function store()

@@ -9,6 +9,6 @@ class PagesController {
     {
         $title = 'Home Page';
 
-        require __DIR__ . '/../views/index.view.php';
+        return view('index', compact('title'));
     }
 }

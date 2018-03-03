@@ -29,6 +29,12 @@ class Router {
         return $router;
     }
 
+    /**
+     * @param string $uri
+     * @param string $method
+     * @return mixed
+     * @throws \Exception
+     */
     public function direct(string $uri, string $method)
     {
         $uri = strtolower($uri);
@@ -42,6 +48,12 @@ class Router {
         throw new \Exception('Resource not found');
     }
 
+    /**
+     * @param $controller
+     * @param $action
+     * @return mixed
+     * @throws \Exception
+     */
     private function callAction($controller, $action)
     {
         $controller = '\mvcwebsite\controllers\\' . $controller;
