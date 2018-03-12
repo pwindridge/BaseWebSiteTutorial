@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Welcome Page</title>
-</head>
-<body>
-<header>
-    <h1>Welcome to the MVC from scratch tutorial</h1>
-</header>
-</body>
-</html>
+<?php
+
+require '../core/bootstrap.php';
+
+use \core\{
+    Router, Request
+};
+
+
+try {
+    Router::load('../routes.php')
+        ->direct(Request::uri(), Request::method());
+
+} catch (Exception $e) {
+
+    if ($e->getMessage() == 'Page not found') {
+        require '../app/controllers/pageNotFound.php';
+    } elseif ($e->getMessage() == 'Action does not exist') {
+        //log action missing
+    }
+}
+
